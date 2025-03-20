@@ -15,6 +15,7 @@ const blogs=require("./router/blog")
 const bike=require("./router/bikeRouter")
 const quiry=require("./router/quiryRouter")
 
+const port=4000 || process.env.port;
 
 
 app.use("/blogs",blogs)
@@ -22,6 +23,10 @@ app.use("/bike",bike)
 app.use("/quiry",quiry)
 
 
-app.listen(4000,()=>{
+app.listen(port,()=>{
     console.log('server is running on port 4000')
+})
+
+app.use('/',(req,res)=>{
+    res.send('welcome to our server')
 })
